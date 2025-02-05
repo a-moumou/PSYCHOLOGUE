@@ -4,6 +4,10 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import routes from "./config";
 import { Styles } from "../styles/styles";
+import NosServices from "../pages/NosServices/NosServices";
+import APropos from "../pages/APropos/APropos";
+import Tarifs from "../pages/tarifs/Tarifs";
+import Contact from "../pages/Contact/Contact";
 
 const Router = () => {
   return (
@@ -21,6 +25,10 @@ const Router = () => {
             />
           );
         })}
+        <Route path="/nos-services" component={NosServices} />
+        <Route path="/a-propos" component={APropos} />
+        <Route path="/tarifs" component={Tarifs} />
+        <Route path="/contact" component={Contact} />
       </Switch>
       <Footer />
     </Suspense>

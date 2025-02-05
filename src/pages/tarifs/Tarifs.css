@@ -1,0 +1,59 @@
+/* Style général de la page */
+.tarifs-container {
+    max-width: 1200px; /* Augmentez la largeur maximale pour accommoder 4 colonnes */
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes de largeur égale */
+    gap: 20px; /* Espace entre les éléments */
+}
+
+/* Style pour chaque tarif */
+.tarif-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.tarif-item h2 {
+    color: #2e186a;
+    margin-bottom: 10px;
+    font-size: 1.2em; /* Taille de police réduite pour s'adapter à la grille */
+}
+
+.tarif-item p {
+    color: #333;
+    line-height: 1.6;
+    font-size: 0.9em; /* Taille de police réduite pour s'adapter à la grille */
+}
+
+/* Style pour le prix et le bouton */
+.price-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Pousse le bouton vers le bas */
+}
+
+/* Styles pour les écrans mobiles (max-width: 768px) */
+@media (max-width: 768px) {
+    .tarifs-container {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+}
+
+/* Ajout d'un style pour le h1 */
+h1 {
+    grid-column: 1 / -1; /* Fait occuper toute la largeur de la grille */
+    margin-bottom: 20px; /* Espace en bas du titre */
+    grid-column: span 4; /* S'assure que le h1 s'étend sur toutes les colonnes */
+}
+
+/* Ajoutez ceci à votre fichier Tarifs.css */
+.full-width {
+    grid-column: 1 / -1; /* Fait occuper toute la largeur de la grille */
+}

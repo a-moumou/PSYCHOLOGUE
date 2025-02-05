@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
 import { Slide } from "react-awesome-reveal";
@@ -11,6 +12,34 @@ import TextArea from "../../common/TextArea";
 import { ContactContainer, FormGroup, Span, ButtonContainer } from "./styles";
 
 const Contact = ({ title, content, id, t }: ContactProps) => {
+  const [calendlyLoaded, setCalendlyLoaded] = useState(false);
+
+  useEffect(() => {
+    const checkCalendly = () => {
+      if (window.Calendly) {
+        setCalendlyLoaded(true);
+      } else {
+        setTimeout(checkCalendly, 100);
+      }
+    };
+    checkCalendly();
+  }, []);
+
+  const openCalendly = () => {
+    console.log("Tentative d'ouverture du widget Calendly");
+    if (calendlyLoaded) {
+      window.Calendly.initBadgeWidget({
+        url: 'https://calendly.com/bou214540',
+        text: 'Schedule time with me',
+        color: '#0069ff',
+        textColor: '#ffffff',
+        branding: true
+      });
+    } else {
+      console.error("Calendly n'est pas chargé");
+    }
+  };
+
   const { values, errors, handleChange, handleSubmit } = useForm(validate);
 
   const ValidationType = ({ type }: ValidationTypeProps) => {
@@ -32,8 +61,8 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
               <Col span={24}>
                 <Input
                   type="text"
-                  name="name"
-                  placeholder="Your Name"
+                  name="Nom et Prénom"
+                  placeholder="Nom et Prénom"
                   value={values.name || ""}
                   onChange={handleChange}
                 />
@@ -43,7 +72,7 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
                 <Input
                   type="text"
                   name="email"
-                  placeholder="Your Email"
+                  placeholder="Votre Email"
                   value={values.email || ""}
                   onChange={handleChange}
                 />
@@ -51,7 +80,7 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
               </Col>
               <Col span={24}>
                 <TextArea
-                  placeholder="Your Message"
+                  placeholder="Votre Message"
                   value={values.message || ""}
                   name="message"
                   onChange={handleChange}
@@ -59,7 +88,7 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
                 <ValidationType type="message" />
               </Col>
               <ButtonContainer>
-                <Button name="submit">{t("Submit")}</Button>
+                <Button name="Envoyer" onClick={openCalendly}>{t("Envoyer")}</Button>
               </ButtonContainer>
             </FormGroup>
           </Slide>

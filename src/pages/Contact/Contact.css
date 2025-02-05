@@ -1,0 +1,138 @@
+/* Style général du conteneur */
+.contact-container {
+    max-width: 1200px; /* Augmenter la largeur pour accommoder deux colonnes */
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    display: flex; /* Disposition en flexbox */
+    gap: 40px; /* Espace entre les colonnes */
+}
+
+/* Style pour la colonne de texte */
+.contact-text {
+    flex: 1; /* Prend 50% de l'espace */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-text h2 {
+    color: #2e186a;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.contact-text p {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* Style pour la colonne du formulaire */
+.contact-form-container {
+    flex: 1; /* Prend 50% de l'espace */
+}
+
+/* Style des messages de succès et d'erreur */
+.success-message {
+    color: #28a745;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.error-message {
+    color: #dc3545;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Style du formulaire */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 1em;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Style des champs de formulaire */
+.input-field,
+.textarea-field {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus,
+.textarea-field:focus {
+    border-color: #2e186a;
+    box-shadow: 0 0 5px rgba(46, 24, 106, 0.5);
+    outline: none;
+}
+
+.textarea-field {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Style du bouton d'envoi */
+.submit-button {
+    padding: 12px 20px;
+    background-color: #2e186a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #1a1040;
+    transform: scale(1.05);
+}
+
+.submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column; /* Une seule colonne sur mobile */
+        gap: 20px;
+    }
+
+    .contact-text h2 {
+        font-size: 1.5em;
+    }
+
+    .contact-text p {
+        font-size: 0.9em;
+    }
+
+    .input-field,
+    .textarea-field {
+        font-size: 0.9em;
+    }
+
+    .submit-button {
+        font-size: 0.9em;
+    }
+}

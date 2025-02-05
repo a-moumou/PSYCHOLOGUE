@@ -1,0 +1,13 @@
+.grid-container {
+  display: flex;
+  flex-direction: column; /* Aligne les blocs verticalement */
+  gap: 20px; /* Espace entre les blocs */
+}
+
+.content-block {
+  
+  padding: 15px; /* Espacement interne */
+  border-radius: 5px; /* Coins arrondis */
+ 
+
+} 

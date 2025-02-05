@@ -4,6 +4,7 @@ import { withTranslation, TFunction } from "react-i18next";
 import Container from "../../common/Container";
 import { SvgIcon } from "../../common/SvgIcon";
 import { Button } from "../../common/Button";
+import { Link } from "react-router-dom";
 import {
   HeaderSection,
   LogoContainer,
@@ -23,35 +24,60 @@ const Header = ({ t }: { t: TFunction }) => {
     setVisibility(!visible);
   };
 
+  const openCalendly = () => {
+    console.log("Tentative d'ouverture du lien Calendly");
+    window.open('https://calendly.com/bou214540', '_blank'); // Ouvrir le lien dans un nouvel onglet
+  };
+
   const MenuItem = () => {
-    const scrollTo = (id: string) => {
-      const element = document.getElementById(id) as HTMLDivElement;
-      element.scrollIntoView({
-        behavior: "smooth",
-      });
-      setVisibility(false);
-    };
     return (
       <>
-        <CustomNavLinkSmall onClick={() => scrollTo("about")}>
-          <Span>{t("About")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("mission")}>
-          <Span>{t("Mission")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("product")}>
-          <Span>{t("Product")}</Span>
-        </CustomNavLinkSmall>
+        <Link to="/home">
+          <CustomNavLinkSmall>
+            <Span>{t("Accueil")}</Span>
+          </CustomNavLinkSmall>
+        </Link>
+        <Link to="/nos-services">
+          <CustomNavLinkSmall>
+            <Span>{t("Nos services")}</Span>
+          </CustomNavLinkSmall>
+        </Link>
+        <Link to="/a-propos">
+          <CustomNavLinkSmall>
+            <Span>{t("À propos")}</Span>
+          </CustomNavLinkSmall>
+        </Link>
+        <Link to="/tarifs">
+          <CustomNavLinkSmall>
+            <Span>{t("Tarifs")}</Span>
+          </CustomNavLinkSmall>
+        </Link>
+        <Link to="/contact">
+          <CustomNavLinkSmall>
+            <Span>{t("Contact")}</Span>
+          </CustomNavLinkSmall>
+        </Link>
         <CustomNavLinkSmall
           style={{ width: "180px" }}
-          onClick={() => scrollTo("contact")}
+          onClick={openCalendly}
         >
           <Span>
-            <Button>{t("Contact")}</Button>
+            <Button onClick={openCalendly}>{t("Prendre RDV")}</Button>
           </Span>
         </CustomNavLinkSmall>
       </>
     );
+  };
+
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id) as HTMLDivElement;
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+      });
+    } else {
+      console.warn(`Element with id "${id}" not found.`);
+    }
   };
 
   return (

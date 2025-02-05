@@ -1,0 +1,12 @@
+{
+    "title": "Consultation Individuelle",
+    "text": "Découvrez nos services de consultation individuelle pour un accompagnement personnalisé.",
+    "button": [
+        {
+            "title": "En savoir plus",
+            "color": "#18216d",
+            "textColor": "#ffffff",
+            "id": "nos-services"
+        }
+    ]
+}

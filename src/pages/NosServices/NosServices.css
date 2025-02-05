@@ -1,0 +1,9 @@
+.service-body { /* Ajout de la classe pour le body */
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 60px;
+}
+

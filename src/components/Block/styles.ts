@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
-export const Content = styled("p")`
+export const Content = styled("div")`
   margin-top: 1.5rem;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  max-height: none;
 `;
 
 export const Container = styled("div")`

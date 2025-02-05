@@ -1,0 +1,11 @@
+{
+    "title": "Guidance Parentale",
+    "text": "Obtenez des conseils et des stratégies pour mieux accompagner vos enfants.",
+    "button": [
+        {
+            "title": "En savoir plus",
+            "color": "#18216d",
+            "textColor": "#ffffff"
+        }
+    ]
+}
